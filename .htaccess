@@ -1,6 +1,0 @@
-<IfModule mod_rewrite.c>
-    RewriteEngine On
-
-    # Redirect if index.php is in the URL
-    RewriteRule ^index.php/(.+) /$1 [R=301,L]
-</IfModule>
