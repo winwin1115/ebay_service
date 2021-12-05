@@ -1,7 +1,8 @@
 <IfModule mod_rewrite.c>
-    Options +FollowSymLinks
     RewriteEngine On
-    RewriteCond %{REQUEST_FILENAME} !-d
+    # Removes index.php from ExpressionEngine URLs  
     RewriteCond %{REQUEST_FILENAME} !-f
-    RewriteRule ^ index.php [L]
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteRule ^(.*)$ index.php?url=$1 [PT,L]
+
 </IfModule>
