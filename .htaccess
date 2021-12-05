@@ -1,11 +1,6 @@
 <IfModule mod_rewrite.c>
-    Options +FollowSymLinks -Indexes
     RewriteEngine On
 
-    RewriteCond %{HTTP:Authorization} .
-    RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
-
-    RewriteCond %{REQUEST_FILENAME} !-d
-    RewriteCond %{REQUEST_FILENAME} !-f
-    RewriteRule ^ index.php [L]
+    # Redirect if index.php is in the URL
+    RewriteRule ^index.php/(.+) /$1 [R=301,L]
 </IfModule>
