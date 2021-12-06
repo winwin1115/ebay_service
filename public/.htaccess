@@ -1,8 +1,13 @@
 <IfModule mod_rewrite.c>
-    Options +FollowSymLinks
+    <IfModule mod_negotiation.c>
+        Options -MultiViews -Indexes
+    </IfModule>
+
     RewriteEngine On
 
-    RewriteCond %{REQUEST_FILENAME} !-d
-    RewriteCond %{REQUEST_FILENAME} !-f
-    RewriteRule ^ index.php [L]
+    RewriteCond %{THE_REQUEST} /index\.php [NC]
+    RewriteRule ^(.*?)index\.php[^/] /$1? [L,R=302,NC,NE]
+
+    RewriteCond %{THE_REQUEST} /index\.php [NC]
+    RewriteRule ^(.*?)index\.php(?:/(.*))?$ /$1$2? [L,R=302,NC,NE]
 </IfModule>
