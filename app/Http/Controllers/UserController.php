@@ -36,4 +36,14 @@ class UserController extends Controller
         
         return response()->json(['status' => '500']);
     }
+
+    public function settoken(Request $request)
+    {
+        $user = User::where(['id' => $request->user_id])->update(['user_token' => $request->user_token]);
+        if($user)
+            return response()->json(['status' => '200']);
+        else {
+            return response()->json(['status' => '500']);
+        }
+    }
 }

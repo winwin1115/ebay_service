@@ -33,3 +33,4 @@ Route::post('addItem', [ProductController::class, 'additem']);
 Route::post('getProductlist', [ProductController::class, 'getproduct']);
 Route::post('updateProduct', [ProductController::class, 'updateproduct']);
 Route::post('checkProduct', [ProductController::class, 'checkproduct']);
+Route::post('setToken', [UserController::class, 'settoken']);

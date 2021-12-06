@@ -23,6 +23,7 @@ class CreateUsersTable extends Migration
             $table->string('user_type');
             $table->integer('use_status')->default('0');
             $table->string('pay_date')->nullable();
+            $table->longText('user_token')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });

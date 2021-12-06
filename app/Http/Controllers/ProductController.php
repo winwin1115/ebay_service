@@ -81,6 +81,12 @@ class ProductController extends Controller
 
     public function additem(Request $request)
     {
+        $user_info = User::where(['id' => $request->user_id])->first();
+        $user_token = $user_info['user_token'];
+        if(!$user_token)
+        {
+            return response()->json(['status' => '300']);
+        }
         $siteId = Constants\SiteIds::US;
         $service = new tServices\TradingService([
             'credentials' => config('ebayconfig.production.credentials'),
@@ -90,7 +96,7 @@ class ProductController extends Controller
 
         $ebay_request = new tTypes\AddItemRequestType();
         $ebay_request->RequesterCredentials = new tTypes\CustomSecurityHeaderType();
-        $ebay_request->RequesterCredentials->eBayAuthToken = config('ebayconfig.production.authToken');
+        $ebay_request->RequesterCredentials->eBayAuthToken = $user_token;
 
         $item = new tTypes\ItemType();
         $item->Title = $request->title;

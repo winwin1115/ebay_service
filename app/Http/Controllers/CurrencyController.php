@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use App\Models\User;
 use App\Models\Currency;
 
 class CurrencyController extends Controller
@@ -20,7 +21,9 @@ class CurrencyController extends Controller
             $currency_rate = '';
             $profit_rate = '';
         }
-        return response()->json(['currency_rate' => $currency_rate, 'profit_rate' => $profit_rate]);
+        $user_info = User::where(['id' => $request->user_id])->first();
+        $user_token = $user_info['user_token'];
+        return response()->json(['currency_rate' => $currency_rate, 'profit_rate' => $profit_rate, 'user_token' => $user_token]);
     }
     
     public function setcurrency(Request $request)
