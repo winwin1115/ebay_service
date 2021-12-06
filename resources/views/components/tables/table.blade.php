@@ -24,8 +24,8 @@
 									<td>
 										<div class="d-flex px-2 py-1">
 											<div class="d-flex flex-column justify-content-center">
-												<h6 class="mb-0 text-sm">John Michael</h6>
-												<p class="text-xs text-secondary mb-0">john@creative-tim.com</p>
+												<h6 class="mb-0 text-sm">Erik Peterson</h6>
+												<p class="text-xs text-secondary mb-0">ericpeterson.lancer@gmail.com</p>
 											</div>
 										</div>
 									</td>
@@ -33,31 +33,13 @@
 										<p class="text-sm font-weight-bold mb-0">$2,500</p>
 									</td>
 									<td class="align-middle">
-										<span class="badge badge-sm bg-gradient-success">Online</span>
+										<span class="badge badge-sm bg-gradient-success">利用中</span>
 									</td>
 									<td class="align-middle">
-										<span class="text-secondary text-xs font-weight-bold">23/04/18</span>
+										<span class="text-secondary text-xs font-weight-bold">23/04/2021</span>
 									</td>
 								</tr>
-								<tr>
-									<td>
-										<div class="d-flex px-2 py-1">
-											<div class="d-flex flex-column justify-content-center">
-												<h6 class="mb-0 text-sm">John Michael</h6>
-												<p class="text-xs text-secondary mb-0">john@creative-tim.com</p>
-											</div>
-										</div>
-									</td>
-									<td>
-										<p class="text-sm font-weight-bold mb-0">$2,500</p>
-									</td>
-									<td class="align-middle">
-										<span class="badge badge-sm bg-gradient-secondary">Offline</span>
-									</td>
-									<td class="align-middle">
-										<span class="text-secondary text-xs font-weight-bold">23/04/18</span>
-									</td>
-								</tr>
+								
 							</tbody>
 						</table>
 					</div>

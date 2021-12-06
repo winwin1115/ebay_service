@@ -20,7 +20,7 @@ class DatabaseSeeder extends Seeder
             'first_name' => 'admin',
             'last_name' => 'admin',
             'email' => 'admin@ebay.com',
-            'password' => bcrypt('admin')
+            'password' => Hash::make('admin')
         ]);
     }
 }
