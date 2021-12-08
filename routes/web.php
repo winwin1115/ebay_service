@@ -34,6 +34,7 @@ Route::get('/', Login::class)->name('login');
 
 Route::get('/sign-up', SignUp::class)->name('sign-up');
 Route::get('/login', Login::class)->name('login');
+Route::post('/login', [Login::class, 'login'])->name('login');
 Route::post('/register', [SignUp::class, 'register'])->name('register');
 Route::get('/login/forgot-password', ForgotPassword::class)->name('forgot-password');
  
@@ -43,6 +44,8 @@ Route::middleware('auth')->group(function () {
     Route::get('/user-management', UserManagement::class)->name('user-management');
     Route::get('/user-profile', UserProfile::class)->name('user-profile');
     Route::get('/pay-management', Tables::class)->name('pay-management');
+    Route::post('/generate-token', [UserManagement::class, 'generateToken'])->name('generate-token');
+    Route::post('/delete-token', [UserManagement::class, 'deleteToken'])->name('delete-token');
 
     Route::get('/my-profile', UserProfile::class)->name('my-profile');
     Route::get('/plan', Billing::class)->name('plan');

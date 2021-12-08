@@ -33,17 +33,17 @@
                             </div>
                             <div class="mb-3">
                                 <div class="form-group">
-                                    <input name="email" type="email" class="form-control" placeholder="メールアドレス" aria-label="Email" aria-describedby="email-addon">
+                                    <input name="email" type="email" class="form-control" placeholder="メールアドレス" aria-label="メールアドレス" aria-describedby="email-addon">
                                 </div>
                             </div>
                             <div class="mb-3">
                                 <div class="form-group">
-                                    <input name="password" id="password" type="password" class="form-control"　placeholder="Paa" aria-label="Password" aria-describedby="password-addon">
+                                    <input name="password" id="password" type="password" class="form-control"　placeholder="パスワード" aria-label="パスワード" aria-describedby="password-addon">
                                 </div>
                             </div>
                             <div class="mb-3">
                                 <div class="form-group">
-                                    <input name="confirm_password" type="password" class="form-control"　placeholder="kakパスワード">
+                                    <input name="confirm_password" type="password" class="form-control"　placeholder="確認用パスワード">
                                 </div>
                             </div>
                             {{-- <div class="form-check form-check-info text-left">

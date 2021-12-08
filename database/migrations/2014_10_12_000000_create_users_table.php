@@ -24,6 +24,7 @@ class CreateUsersTable extends Migration
             $table->integer('use_status')->default('0');
             $table->string('pay_date')->nullable();
             $table->longText('user_token')->nullable();
+            $table->longText('license')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });

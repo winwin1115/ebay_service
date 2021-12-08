@@ -12,8 +12,8 @@
                 <div class="col-xl-6 col-lg-6 col-sm-12 m-auto">
                     <p> {{$user_name}}さん。 </p>
                     <p> eBay出品ツールを利用いただきありがとうございます。 </p>
-                    <p> 現在、 {{$item_name}}(商品ID: {{$item_id}})の在庫がございません。</p>
-                    <p> だから、対策してください。</p>
+                    <p> 申請が承認されました。サービスへログインする際に、そのライセンスを利用してください。</p>
+                    <p> {{$token}}</p>
                     <p> 今後ともサービスをよろしくお願いいたします！</p>
                     <br/>
                     <p> Copyright(c) 2021 eBay出品サービス. All rights reserved.</p>

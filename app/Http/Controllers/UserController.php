@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Models\User;
+use Carbon\Carbon;
 
 class UserController extends Controller
 {
@@ -29,6 +30,20 @@ class UserController extends Controller
 
     public function login(Request $request)
     {
+        $user = User::where(["email" => $request->email])->first();
+        if(!$user)
+            return response()->json(['status' => '300', 'message' => '登録されていないユーザーです。']);
+        elseif(!$user['license'])
+            return response()->json(['status' => '300', 'message' => 'まだ許可されていないユーザーです。']);
+        elseif ($user['license'] != $request->license) {
+            return response()->json(['status' => '300', 'message' => 'ライセンスが正しくありません。']);
+        }
+        $from_date = strtotime($user->created_at);
+        $now = strtotime(now());
+        $days = ($now - $from_date) / 86400;
+        if($days > 365)
+            return response()->json(['status' => '300', 'message' => '使用期間が切れました。']);
+
         if (User::login($request)) {
             $user = User::where(['email' => $request->email, 'user_type' => '0'])->get();
             return response()->json(['status' => '200', 'data' => $user]);

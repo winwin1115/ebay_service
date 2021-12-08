@@ -1,13 +1,20 @@
 <IfModule mod_rewrite.c>
+
     <IfModule mod_negotiation.c>
-        Options -MultiViews -Indexes
+        Options -MultiViews
     </IfModule>
 
     RewriteEngine On
 
-    RewriteCond %{THE_REQUEST} /index\.php [NC]
-    RewriteRule ^(.*?)index\.php[^/] /$1? [L,R=302,NC,NE]
+    RewriteCond %{REQUEST_URI}::$1 ^(/.+)/(.*)::\2$
+    RewriteRule ^(.*) - [E=BASE:%1]
 
-    RewriteCond %{THE_REQUEST} /index\.php [NC]
-    RewriteRule ^(.*?)index\.php(?:/(.*))?$ /$1$2? [L,R=302,NC,NE]
+    RewriteCond %{ENV:REDIRECT_STATUS} ^$
+    RewriteRule ^index\.php(/(.*)|$) %{ENV:BASE}/$2 [R=301,L]
+
+    RewriteCond %{REQUEST_FILENAME} -f
+    RewriteRule .? - [L]
+
+    RewriteRule .? %{ENV:BASE}/index.php [L]
+
 </IfModule>

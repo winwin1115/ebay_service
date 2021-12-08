@@ -22,7 +22,7 @@
                         <span class="nav-link-text ms-1">ユーザー管理</span>
                     </a>
                 </li>
-                <li class="nav-item">
+                {{-- <li class="nav-item">
                     <a class="nav-link {{ Route::currentRouteName() == 'pay-management' ? 'active' : '' }}"
                         href="{{ route('pay-management') }}">
                         <div
@@ -49,7 +49,7 @@
                         </div>
                         <span class="nav-link-text ms-1">決済履歴管理</span>
                     </a>
-                </li>
+                </li> --}}
             @else
                 <li class="nav-item">
                     <a class="nav-link {{ Route::currentRouteName() == 'my-profile' ? 'active' : '' }}"

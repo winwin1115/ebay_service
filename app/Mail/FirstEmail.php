@@ -34,13 +34,25 @@ class FirstEmail extends Mailable
      */
     public function build()
     {
-        return $this->subject('eBay Listing Product Alert!')
-            ->from("shu0921tt@gmail.com")
-            ->view('emails.mail')
-            ->with([
-                'item_id' => $this->item_id,
-                'item_name' => $this->item_name,
-                'user_name' => $this->user_name
-            ]);
+        if($this->item_name != 'token')
+        {
+            return $this->subject('eBay Listing Product Alert!')
+                ->from("noreply@eBayListingService.jp")
+                ->view('emails.mail')
+                ->with([
+                    'item_id' => $this->item_id,
+                    'item_name' => $this->item_name,
+                    'user_name' => $this->user_name
+                ]);    
+        }
+        else {
+            return $this->subject('eBay Listing Product Alert!')
+                ->from("noreply@eBayListingService.jp")
+                ->view('emails.token')
+                ->with([
+                    'token' => $this->item_id,
+                    'user_name' => $this->user_name
+                ]);
+        }
     }
 }

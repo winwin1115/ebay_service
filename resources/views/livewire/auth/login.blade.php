@@ -1,3 +1,5 @@
+<script src="../assets/js/login.js"></script>
+
 <section>
     <div class="page-header section-height-75">
         <div class="container">
@@ -8,26 +10,41 @@
                             <h3 class="font-weight-bolder text-info text-gradient">{{ __('ログイン') }}</h3>
                         </div>
                         <div class="card-body">
-                            <form wire:submit.prevent="login" action="#" method="POST" role="form text-left">
+                            <form action="{{ route('login') }}" method="POST" role="form text-left" id="loginForm">
+                                {{ csrf_field() }}
                                 <div class="mb-3">
                                     <label for="email">{{ __('メールアドレス') }}</label>
-                                    <div class="@error('email')border border-danger rounded-3 @enderror">
-                                        <input wire:model="email" id="email" type="email" class="form-control"
-                                            placeholder="Email" aria-label="Email" aria-describedby="email-addon">
+                                    <div class="form-group">
+                                        <input name="email" id="email" type="email" class="form-control" placeholder="メールアドレス"
+                                            aria-label="メールアドレス" aria-describedby="email-addon">
                                     </div>
-                                    @error('email') <div class="text-danger">{{ $message }}</div> @enderror
+                                    @if(session()->has('credent'))
+                                        <div class="alert alert-danger">
+                                            {{ session()->get('credent') }}
+                                        </div>
+                                    @endif
                                 </div>
                                 <div class="mb-3">
                                     <label for="password">{{ __('パスワード') }}</label>
-                                    <div class="@error('password')border border-danger rounded-3 @enderror">
-                                        <input wire:model="password" id="password" type="password" class="form-control"
-                                            placeholder="Password" aria-label="Password"
-                                            aria-describedby="password-addon">
+                                    <div class="form-group">
+                                        <input name="password" id="password" type="password" class="form-control" placeholder="パスワード"
+                                            aria-label="パスワード" aria-describedby="password-addon">
                                     </div>
-                                    @error('password') <div class="text-danger">{{ $message }}</div> @enderror
+                                </div>
+                                <div class="mb-3">
+                                    <label for="password">{{ __('ライセンス') }}</label>
+                                    <div class="form-group">
+                                        <input name="license" id="license" type="password" class="form-control" placeholder="ライセンス"
+                                            aria-label="ライセンス" aria-describedby="password-addon">
+                                    </div>
+                                    @if(session()->has('license'))
+                                        <div class="alert alert-danger">
+                                            {{ session()->get('license') }}
+                                        </div>
+                                    @endif
                                 </div>
                                 <div class="form-check form-switch">
-                                    <input wire:model="remember_me" class="form-check-input" type="checkbox"
+                                    <input name="remember_me" class="form-check-input" type="checkbox"
                                         id="rememberMe">
                                     <label class="form-check-label" for="rememberMe">{{ __('ログイン情報を保存') }}</label>
                                 </div>
@@ -38,9 +55,11 @@
                             </form>
                         </div>
                         <div class="card-footer text-center pt-0 px-lg-2 px-1">
-                            <a href="{{ route('forgot-password') }}" class="text-info text-gradient font-weight-bold">{{ __('パスワードをお忘れですか') }}</a>
+                            <a href="{{ route('forgot-password') }}"
+                                class="text-info text-gradient font-weight-bold">{{ __('パスワードをお忘れですか') }}</a>
                             <p class="mb-4 text-sm mx-auto">{{ __(' アカウントがない方は') }}
-                                <a href="{{ route('sign-up') }}" class="text-info text-gradient font-weight-bold">{{ __('こちらへ') }}</a>
+                                <a href="{{ route('sign-up') }}"
+                                    class="text-info text-gradient font-weight-bold">{{ __('こちらへ') }}</a>
                             </p>
                         </div>
                     </div>
