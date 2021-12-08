@@ -22,7 +22,8 @@ class UserManagement extends Component
     public function generateToken(Request $request)
     {
         $random_token = Str::random(30);
-        $user = User::where(['id' => $request->user_id])->update(['use_status' => '1', 'license' => $random_token]);
+        User::where(['id' => $request->user_id])->update(['use_status' => '1', 'license' => $random_token]);
+        $user = User::where(['id' => $request->user_id])->first();
 
         $to_email = $user['email'];
         $user_name = $user['first_name'];
