@@ -31,7 +31,7 @@
                                             aria-label="パスワード" aria-describedby="password-addon">
                                     </div>
                                 </div>
-                                <div class="mb-3">
+                                {{-- <div class="mb-3">
                                     <label for="password">{{ __('ライセンス') }}</label>
                                     <div class="form-group">
                                         <input name="license" id="license" type="password" class="form-control" placeholder="ライセンス"
@@ -47,7 +47,7 @@
                                     <input name="remember_me" class="form-check-input" type="checkbox"
                                         id="rememberMe">
                                     <label class="form-check-label" for="rememberMe">{{ __('ログイン情報を保存') }}</label>
-                                </div>
+                                </div> --}}
                                 <div class="text-center">
                                     <button type="submit"
                                         class="btn bg-gradient-info w-100 mt-4 mb-0">{{ __('ログイン') }}</button>

@@ -18,7 +18,7 @@
                     <div class="row">
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label for="user-name" class="form-control-label">{{ __('姓') }}</label>
+                                <label for="first_name" class="form-control-label">{{ __('姓') }}</label>
                                 <div class="form-group">
                                     <input name="first_name" class="form-control" type="text" value="{{auth()->user()->first_name}}" id="first_name">
                                 </div>
@@ -26,7 +26,7 @@
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label for="user-name" class="form-control-label">{{ __('名') }}</label>
+                                <label for="last_name" class="form-control-label">{{ __('名') }}</label>
                                 <div class="form-group">
                                     <input name="last_name" class="form-control" type="text" value="{{auth()->user()->last_name}}" id="last_name">
                                 </div>
@@ -36,9 +36,17 @@
                     <div class="row">
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label for="user-email" class="form-control-label">{{ __('メールアドレス') }}</label>
+                                <label for="email" class="form-control-label">{{ __('メールアドレス') }}</label>
                                 <div class="form-group">
                                     <input name="email" class="form-control" type="email" value="{{auth()->user()->email}}" id="user-email" readonly="readonly" disabled>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="license" class="form-control-label">{{ __('ライセンス') }}</label>
+                                <div class="form-group">
+                                    <input name="license" class="form-control" type="text" value="{{auth()->user()->license}}" id="license" readonly="readonly" disabled>
                                 </div>
                             </div>
                         </div>

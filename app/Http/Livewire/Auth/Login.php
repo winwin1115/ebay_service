@@ -34,11 +34,11 @@ class Login extends Component
         $user = User::where(["email" => $request->email])->first();
         if(!$user)
             return redirect()->back()->with('credent', '登録されていないユーザーです。');
-        elseif(!$user['license'])
-            return redirect()->back()->with('license', 'まだ許可されていないユーザーです。');
-        elseif ($user['license'] != $request->license) {
-            return redirect()->back()->with('license', 'ライセンスが正しくありません。');
-        }
+        // elseif(!$user['license'])
+        //     return redirect()->back()->with('license', 'まだ許可されていないユーザーです。');
+        // elseif ($user['license'] != $request->license) {
+        //     return redirect()->back()->with('license', 'ライセンスが正しくありません。');
+        // }
 
         $from_date = strtotime($user->created_at);
         $now = strtotime(now());

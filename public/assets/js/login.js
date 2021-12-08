@@ -18,9 +18,9 @@ var LoginForm = (function () {
                 password: {
                     required: true,
                 },
-                license: {
-                    required: true,
-                },
+                // license: {
+                //     required: true,
+                // },
             },
             messages: {
                 email: {
@@ -30,9 +30,9 @@ var LoginForm = (function () {
                 password: {
                     required: "パスワードを入力してください。",
                 },
-                license: {
-                    required: "ライセンスを入力してください。",
-                },
+                // license: {
+                //     required: "ライセンスを入力してください。",
+                // },
             },
             highlight: function (element) {
                 // hightlight error inputs

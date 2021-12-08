@@ -25,9 +25,9 @@ class UserManagement extends Component
         User::where(['id' => $request->user_id])->update(['use_status' => '1', 'license' => $random_token]);
         $user = User::where(['id' => $request->user_id])->first();
 
-        $to_email = $user['email'];
-        $user_name = $user['first_name'];
-        Mail::to($to_email)->send(new FirstEmail($random_token, 'token', $user_name));
+        // $to_email = $user['email'];
+        // $user_name = $user['first_name'];
+        // Mail::to($to_email)->send(new FirstEmail($random_token, 'token', $user_name));
 
         if($user)
             return response()->json(['status' => '200']);
