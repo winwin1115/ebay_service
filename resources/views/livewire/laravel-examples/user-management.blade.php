@@ -26,7 +26,7 @@
                                         メールアドレス
                                     </th>
                                     <th class="text-center text-uppercase text-secondary font-weight-bolder opacity-7">
-                                        許可状態
+                                        ライセンス
                                     </th>
                                     <th class="text-center text-uppercase text-secondary font-weight-bolder opacity-7">
                                         登録日付
@@ -50,30 +50,26 @@
                                             <p class="text-xs font-weight-bold mb-0">{{ $item->email }}</p>
                                         </td>
                                         <td class="text-center">
-                                            @if ($item->use_status)
-                                                <span class="badge badge-sm bg-gradient-success">許可された</span>
-                                            @else
-                                                <span class="badge badge-sm bg-gradient-secondary">非許可</span>
-                                            @endif
+                                            <p class="text-xs font-weight-bold mb-0">{{ $item->license }}</p>
                                         </td>
                                         <td class="text-center">
                                             <span
                                                 class="text-secondary text-xs font-weight-bold">{{ $item->created_at->format('Y-m-d') }}</span>
                                         </td>
                                         <td class="text-center">
-                                            <a href="{{ route('user-profile') }}" class="mx-1"
+                                            {{-- <a href="{{ route('user-profile', $item->id) }}" class="mx-1"
                                                 data-bs-toggle="tooltip" data-bs-original-title="ユーザー編集">
                                                 <i class="fas fa-user-edit text-success"></i>
-                                            </a>
+                                            </a> --}}
                                             @if (!$item->use_status)
-                                            <a class="mx-1 gen-modal-btn" data-bs-toggle="modal"
+                                            <a class="mx-1 gen-modal-btn cursor-pointer" data-bs-toggle="modal"
                                                 data-bs-target="#modal-token-generate" data-id="{{ $item->id }}" data-token="{{csrf_token()}}">
-                                                <i class="cursor-pointer fas fa-id-card-alt text-info"></i>
+                                                <i class="fas fa-id-card-alt text-info"></i> ライセンス発行
                                             </a>
                                             @else
-                                            <a class="mx-1 delete-modal-btn" data-bs-toggle="modal"
+                                            <a class="mx-1 delete-modal-btn cursor-pointer" data-bs-toggle="modal"
                                                 data-bs-target="#modal-delete" data-id="{{ $item->id }}" data-token="{{csrf_token()}}">
-                                                <i class="cursor-pointer fas fa-trash text-danger"></i>
+                                                <i class="fas fa-trash text-danger"></i> ライセンス削除
                                             </a>
                                             @endif
                                         </td>
@@ -92,11 +88,11 @@
     <div class="modal-dialog modal-md" role="document">
         <div class="modal-content">
             <div class="modal-header bg-success">
-                <h5 class="modal-title">Token発行</h5>
+                <h5 class="modal-title">ライセンス発行</h5>
             </div>
             <div class="modal-body">
                 <div class="form-group">
-                    <label style="font-size: 14px;">このTokenを本当に発行しますか？</label>
+                    <label style="font-size: 14px;">このライセンスを本当に発行しますか？</label>
 
                     <input type="hidden" id="gen_hidden_id" value="" />
                     <input type="hidden" id="gen_token_hidden_id" value="" />
@@ -114,11 +110,11 @@
     <div class="modal-dialog modal-md" role="document">
         <div class="modal-content">
             <div class="modal-header bg-danger">
-                <h5 class="modal-title">Token削除</h5>
+                <h5 class="modal-title">ライセンス削除</h5>
             </div>
             <div class="modal-body">
                 <div class="form-group">
-                    <label style="font-size: 14px;">このTokenを本当に削除しますか？</label>
+                    <label style="font-size: 14px;">このライセンスを本当に削除しますか？</label>
 
                     <input type="hidden" id="delete_hidden_id" value="" />
                     <input type="hidden" id="delete_token_hidden_id" value="" />

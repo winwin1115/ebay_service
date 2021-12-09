@@ -20,7 +20,7 @@
                             <div class="form-group">
                                 <label for="first_name" class="form-control-label">{{ __('姓') }}</label>
                                 <div class="form-group">
-                                    <input name="first_name" class="form-control" type="text" value="{{auth()->user()->first_name}}" id="first_name">
+                                    <input name="first_name" class="form-control" type="text" value="{{$user_info['first_name']}}" id="first_name">
                                 </div>
                             </div>
                         </div>
@@ -28,7 +28,7 @@
                             <div class="form-group">
                                 <label for="last_name" class="form-control-label">{{ __('名') }}</label>
                                 <div class="form-group">
-                                    <input name="last_name" class="form-control" type="text" value="{{auth()->user()->last_name}}" id="last_name">
+                                    <input name="last_name" class="form-control" type="text" value="{{$user_info['last_name']}}" id="last_name">
                                 </div>
                             </div>
                         </div>
@@ -38,7 +38,7 @@
                             <div class="form-group">
                                 <label for="email" class="form-control-label">{{ __('メールアドレス') }}</label>
                                 <div class="form-group">
-                                    <input name="email" class="form-control" type="email" value="{{auth()->user()->email}}" id="user-email" readonly="readonly" disabled>
+                                    <input name="email" class="form-control" type="email" value="{{$user_info['email']}}" id="user-email" readonly="readonly" disabled>
                                 </div>
                             </div>
                         </div>
@@ -46,45 +46,11 @@
                             <div class="form-group">
                                 <label for="license" class="form-control-label">{{ __('ライセンス') }}</label>
                                 <div class="form-group">
-                                    <input name="license" class="form-control" type="text" value="{{auth()->user()->license}}" id="license" readonly="readonly" disabled>
+                                    <input name="license" class="form-control" type="text" value="{{$user_info['license']}}" id="license" readonly="readonly" disabled>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    {{-- <div class="row">
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label for="user.phone" class="form-control-label">{{ __('現在パスワード') }}</label>
-                                <div class="@error('user.phone')border border-danger rounded-3 @enderror">
-                                    <input wire:model="user.phone" class="form-control" type="tel"
-                                        placeholder="40770888444" id="phone">
-                                </div>
-                                @error('user.phone') <div class="text-danger">{{ $message }}</div> @enderror
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label for="user.location" class="form-control-label">{{ __('新規パスワード') }}</label>
-                                <div class="@error('user.location') border border-danger rounded-3 @enderror">
-                                    <input wire:model="user.location" class="form-control" type="text"
-                                        placeholder="Location" id="name">
-                                </div>
-                                @error('user.location') <div class="text-danger">{{ $message }}</div> @enderror
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label for="user.location" class="form-control-label">{{ __('新規パスワード') }}</label>
-                                <div class="@error('user.location') border border-danger rounded-3 @enderror">
-                                    <input wire:model="user.location" class="form-control" type="text"
-                                        placeholder="Location" id="name">
-                                </div>
-                                @error('user.location') <div class="text-danger">{{ $message }}</div> @enderror
-                            </div>
-                        </div>
-                    </div> --}}
                     <div class="d-flex justify-content-end">
                         <button type="submit" class="btn bg-gradient-dark btn-md mt-4 mb-4">{{ '保存する' }}</button>
                     </div>

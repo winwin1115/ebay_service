@@ -34,8 +34,16 @@ class UserProfile extends Component
 
         return redirect('/my-profile');
     }
+
+    // public function userProfile($id)
+    // {
+    //     $user_info = User::where(['id' => $id])->first();
+    //     return view('livewire.laravel-examples.user-profile')->with(['user_info' => $user_info]);
+    // }
+
     public function render()
     {
-        return view('livewire.laravel-examples.user-profile');
+        $user_info = auth()->user();
+        return view('livewire.laravel-examples.user-profile')->with(['user_info' => $user_info]);
     }
 }

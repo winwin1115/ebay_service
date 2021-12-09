@@ -42,7 +42,7 @@ Route::get('/reset-password/{id}',ResetPassword::class)->name('reset-password')-
 
 Route::middleware('auth')->group(function () {
     Route::get('/user-management', UserManagement::class)->name('user-management');
-    Route::get('/user-profile', UserProfile::class)->name('user-profile');
+    // Route::get('/user-profile/{id}', [Dashboard::class, 'userProfile'])->name('user-profile');
     Route::get('/pay-management', Tables::class)->name('pay-management');
     Route::post('/generate-token', [UserManagement::class, 'generateToken'])->name('generate-token');
     Route::post('/delete-token', [UserManagement::class, 'deleteToken'])->name('delete-token');

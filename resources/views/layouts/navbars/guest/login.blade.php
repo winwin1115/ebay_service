@@ -16,13 +16,13 @@
         <div class="collapse navbar-collapse" id="navigation">
             <ul class="navbar-nav mx-auto">
                 <li class="nav-item">
-                    <a class="nav-link text-dark me-2 text-dark">
+                    <a href="{{ route('sign-up') }}" class="nav-link text-dark me-2 text-dark">
                         <i class="fas fa-user-circle opacity-6 text-dark me-1"></i>
                         新規登録
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-dark me-2">
+                    <a href="{{ route('login') }}" class="nav-link text-dark me-2">
                         <i class="fas fa-key opacity-6 text-dark me-1"></i>
                         ログイン
                     </a>
@@ -30,7 +30,7 @@
             </ul>
             <ul class="navbar-nav d-lg-block d-none">
                 <li class="nav-item">
-                    <a href=""
+                    <a href="{{ asset('assets/files/ebay.zip') }}"
                         class="btn btn-sm btn-round mb-0 me-1 bg-gradient-dark" target="_blank">無料ダウンロード</a>
                 </li>
             </ul>

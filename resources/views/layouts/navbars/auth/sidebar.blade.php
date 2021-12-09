@@ -82,7 +82,7 @@
                         <span class="nav-link-text ms-1">プロファイル</span>
                     </a>
                 </li>
-                <li class="nav-item">
+                {{-- <li class="nav-item">
                     <a class="nav-link {{ Route::currentRouteName() == 'plan' ? 'active' : '' }}"
                         href="{{ route('plan') }}">
                         <div
@@ -109,7 +109,7 @@
                         </div>
                         <span class="nav-link-text ms-1">決済プラン</span>
                     </a>
-                </li>
+                </li> --}}
             @endif
         </ul>
     </div>
