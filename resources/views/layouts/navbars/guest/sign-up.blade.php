@@ -27,7 +27,7 @@
             </ul>
             <ul class="navbar-nav d-lg-block d-none">
                 <li class="nav-item">
-                    <a href="{{ asset('assets/files/ebay.zip') }}" class="btn btn-sm btn-round mb-0 me-1 bg-gradient-light">無料ダウンロード</a>
+                    <a href="{{ asset('assets/files/ebay.zip') }}" class="btn btn-sm btn-round mb-0 me-1 bg-gradient-light">eBay拡張機能ダウンロード</a>
                 </li>
             </ul>
         </div>
