@@ -48,7 +48,7 @@ class Login extends Component
 
         if(auth()->attempt(['email' => $request->email, 'password' => $request->password], $request->remember_me)) {
             auth()->login($user, $request->remember_me);
-            if($user['user_type'] == '9')
+            if(auth()->user()->user_type == '9')
                 return redirect()->intended('/user-management');
             else {
                 return redirect()->intended('/my-profile');
