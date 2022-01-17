@@ -30,6 +30,8 @@ $(document).ready(function () {
     $(".gen-modal-btn").click(function () {
         $("#gen_hidden_id").val($(this).data("id"));
         $("#gen_token_hidden_id").val($(this).data("token"));
+        console.log($("#gen_hidden_id").val());
+        console.log($("#gen_token_hidden_id").val());
     });
 
     $("#generate-confirm-btn").click(function () {
