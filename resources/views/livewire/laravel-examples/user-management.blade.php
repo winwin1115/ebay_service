@@ -1,5 +1,3 @@
-<script src="../assets/js/users.js"></script>
-
 <div>
     <div class="alert alert-secondary mx-4" role="alert">
         <span class="text-white"><strong>登録されたすべてユーザーについてご覧出来ます。</strong></span>
@@ -82,6 +80,7 @@
             </div>
         </div>
     </div>
+    <script src="../assets/js/users.js"></script>
 </div>
 
 <div class="modal fade" id="modal-token-generate" tabindex="-1" role="dialog" aria-labelledby="" aria-hidden="true">
