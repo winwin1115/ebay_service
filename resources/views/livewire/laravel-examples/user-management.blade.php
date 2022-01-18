@@ -1,3 +1,5 @@
+<script src="../assets/js/users.js"></script>
+
 <div>
     <div class="alert alert-secondary mx-4" role="alert">
         <span class="text-white"><strong>登録されたすべてユーザーについてご覧出来ます。</strong></span>
@@ -60,13 +62,11 @@
                                                 <i class="fas fa-user-edit text-success"></i>
                                             </a> --}}
                                             @if (!$item->use_status)
-                                            <a class="mx-1 gen-modal-btn cursor-pointer" data-bs-toggle="modal"
-                                                data-bs-target="#modal-token-generate" data-id="{{ $item->id }}" data-token="{{csrf_token()}}">
+                                            <a href="{{route('generate-token', $item->id)}}" class="mx-1 cursor-pointer">
                                                 <i class="fas fa-id-card-alt text-info"></i> ライセンス発行
                                             </a>
                                             @else
-                                            <a class="mx-1 delete-modal-btn cursor-pointer" data-bs-toggle="modal"
-                                                data-bs-target="#modal-delete" data-id="{{ $item->id }}" data-token="{{csrf_token()}}">
+                                            <a href="{{route('delete-token', $item->id)}}" class="mx-1 cursor-pointer">
                                                 <i class="fas fa-trash text-danger"></i> ライセンス削除
                                             </a>
                                             @endif
@@ -80,7 +80,6 @@
             </div>
         </div>
     </div>
-    <script src="../assets/js/users.js"></script>
 </div>
 
 <div class="modal fade" id="modal-token-generate" tabindex="-1" role="dialog" aria-labelledby="" aria-hidden="true">

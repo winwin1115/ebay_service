@@ -19,30 +19,23 @@ class UserManagement extends Component
         return view('livewire.laravel-examples.user-management')->with(['user_info' => $user]);
     }
 
-    public function generateToken(Request $request)
+    public function generateToken($id)
     {
         $random_token = Str::random(30);
-        User::where(['id' => $request->user_id])->update(['use_status' => '1', 'license' => $random_token]);
-        $user = User::where(['id' => $request->user_id])->first();
+        User::where(['id' => $id])->update(['use_status' => '1', 'license' => $random_token]);
+        $user = User::where(['id' => $id])->first();
 
         // $to_email = $user['email'];
         // $user_name = $user['first_name'];
         // Mail::to($to_email)->send(new FirstEmail($random_token, 'token', $user_name));
 
-        if($user)
-            return response()->json(['status' => '200']);
-        else {
-            return response()->json(['status' => '500']);
-        }
+        return redirect('/user-management');
     }
 
-    public function deleteToken(Request $request)
+    public function deleteToken($id)
     {
-        $user = User::where(['id' => $request->user_id])->update(['use_status' => '0', 'license' => '']);
-        if($user)
-            return response()->json(['status' => '200']);
-        else {
-            return response()->json(['status' => '500']);
-        }
+        $user = User::where(['id' => $id])->update(['use_status' => '0', 'license' => '']);
+        
+        return redirect('/user-management');
     }
 }
